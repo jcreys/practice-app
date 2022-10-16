@@ -10,6 +10,8 @@ const Task = sequelize.define('task', {
     name: Sequelize.STRING
 })
 module.exports={
-    sequelize
+    sequelize,
+    User,
+    Task,
 }
 

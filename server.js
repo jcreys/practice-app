@@ -10,20 +10,18 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.get('/task', async(req,res,next)=>{
+app.get('/api/tasks', async(req,res,next)=>{
     try{
-        const task = await Task.findAll();
-        res.send(task);
+        res.send(await Task.findAll());
     }catch(ex){
         next(ex)
     }
 
 })
 
-app.get('/user', (req,res,next)=>{
+app.get('/api/users', async(req,res,next)=>{
     try{
-        const user = await User.findAll();
-        res.send(user);
+        res.send(await User.findAll());
     }catch(ex){
         next(ex)
     }
@@ -31,18 +29,21 @@ app.get('/user', (req,res,next)=>{
 })
 
 
-const init = async () => {
-  console.log("calling init");
-  await sequelize.sync({ force: true });
-  await Promise.all([
-    User.create({ firstName: 'Joshua' }),
-    User.create({ firstName: 'Lucy' }),
-    User.create({ firstName: 'Ethyl' }),
-    Task.create({ name: 'Buy juice' }),
-    Task.create({ name: 'Go to gym' }),
-    Task.create({ name: 'Get that bread' }),
-    Task.create({ name: 'Code more' }),
-])
-};
+const init = async()=> {
+    console.log('calling init');
+    await sequelize.sync({ force: true });
+    await Promise.all([
+      User.create({ firstName: 'lucy' }),
+      User.create({ firstName: 'moe' }),
+      User.create({ firstName: 'ethyl' }),
+    ]);
+  
+    await Promise.all([
+      Task.create({ name: 'buy milk'}),
+      Task.create({ name: 'walk dog'}),
+      Task.create({ name: 'work out'}),
+      Task.create({ name: 'call Fred'}),
+    ]);
+  };
 
 init();
