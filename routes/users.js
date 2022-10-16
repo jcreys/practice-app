@@ -1,7 +1,7 @@
 const app = require("express").Router();
 const { User } = require("../db");
 
-app.get("/api/users", async (req, res, next) => {
+app.get("/users", async (req, res, next) => {
   try {
     res.send(await User.findAll());
   } catch (ex) {
@@ -9,7 +9,7 @@ app.get("/api/users", async (req, res, next) => {
   }
 });
 
-app.delete("api/users/:id", async (req, res, next) => {
+app.delete("/:id", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id);
     task.destroy();
