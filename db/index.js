@@ -9,6 +9,10 @@ const User = sequelize.define('user',
 const Task = sequelize.define('task', {
     name: Sequelize.STRING
 })
+
+Task.belongsTo(User);
+
+
 module.exports={
     sequelize,
     User,
