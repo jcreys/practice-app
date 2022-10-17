@@ -1,8 +1,9 @@
 const app = require("express").Router();
 const { User } = require("../db");
 
-app.get("/users", async (req, res, next) => {
+app.get("/", async (req, res, next) => {
   try {
+    console.log('finding users >>>>>>')
     res.send(await User.findAll());
   } catch (ex) {
     next(ex);
