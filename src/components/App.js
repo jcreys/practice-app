@@ -6,6 +6,7 @@ import { Route } from "react-router-dom";
 import Tasks from "./Tasks";
 import Home from "./Home";
 import Users from "./Users";
+import UsersWithoutTasks from './UsersWithoutTasks';
 // import Tasks from './Tasks'
 import UserTasks from './UserTasks'
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
         <Nav />
         <Route path="/" exact component={Home} />
         <Route path="/users" exact component={Users} />
+        <Route path='/users/without-tasks' component={ UsersWithoutTasks } />
         <Route path="/users/:id" exact component={UserTasks} />
         <Route path="/tasks" component={Tasks} />
       </div>
