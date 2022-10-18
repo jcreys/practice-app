@@ -1,5 +1,4 @@
 import React from "react";
-import {loadTasks, loadUsers} from '../store'
 import {connect} from 'react-redux'
 const Home = ({tasks, users}) => {
     return(

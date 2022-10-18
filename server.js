@@ -14,6 +14,7 @@ const init = async()=> {
       User.create({ firstName: 'lucy' }),
       User.create({ firstName: 'moe' }),
       User.create({ firstName: 'ethyl' }),
+      User.create({ firstName: 'fred' }),
     ]);
   
     await Promise.all([

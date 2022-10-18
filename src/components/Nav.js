@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {connect} from 'react-redux'
 
 const Nav = () => {
   return (
@@ -11,4 +12,10 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+const mapState = (state)=> {
+    return {
+      tasks: state.tasks,
+      users: state.users
+    };
+  };
+  export default connect(mapState)(Nav);
